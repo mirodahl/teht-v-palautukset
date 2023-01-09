@@ -1,2 +1,2 @@
-user = input('Give name: ')
+user = input('Anna nimesi: ')
 print("Terve, " + user + "!")
