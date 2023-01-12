@@ -4,8 +4,17 @@
 ##
 import math
 
-height = input("Anna suorakulmion kannan pituus: ")
-base = input("Anna suorakulmion korkeus: ")
+height_str = input("Anna suorakulmion kannan pituus: ")
+height = int(height_str)
+
+base_str = input("Anna suorakulmion korkeus: ")
+base = int(base_str)
 
 area = height * base
 circle = height + height + base + base
+
+print("Suorakulmion piiri on: ")
+print(circle)
+
+print("Suorakulmion pinta-ala on:")
+print(area)

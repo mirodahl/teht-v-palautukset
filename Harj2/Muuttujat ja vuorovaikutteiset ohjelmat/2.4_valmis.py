@@ -1,13 +1,13 @@
 ##Kirjoita ohjelma, joka kysyy kolme kokonaislukua
 ##Ohjelma tulostaa lukujen summan, tulon ja keskiarvon.
 one_str = input('Anna ensimmäinen kokonaisluku: ')
-one = float(one_str)
+one = int(one_str)
 
 two_str = input('Anna toinen kokonaisluku: ')
-two = float(two_str)
+two = int(two_str)
 
 three_str = input('Anna kolmas kokonaisluku: ')
-three = float(three_str)
+three = int(three_str)
 
 sum = one+two+three
 product = one*two*three
