@@ -11,8 +11,7 @@ three = float(three_str)
 
 sum = one+two+three
 product = one*two*three
-average1 = one+two+three
-average2 = average1/3
+average = (one+two+three)/3
 
 print("Lukujen summa on:")
 print(sum)
@@ -21,4 +20,4 @@ print("Lukujen tulo on:")
 print(product)
 
 print("Lukujen keskiarvo on:")
-print(average2)
+print(average)
