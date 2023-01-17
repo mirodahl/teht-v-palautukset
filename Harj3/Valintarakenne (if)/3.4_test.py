@@ -21,3 +21,11 @@ else:
 #vuosi on jaollinen 4: llä, niin vuosi ON karkausvuosi
 #MUUTEN
 #vuosi EI OLE karkausvuosi
+
+#'''
+#Eri vuosilukuja, joilla voit testata koodiasi:
+#2000: ON
+#1900: EI ole
+#2023: EI ole
+#2024: ON
+#'''
