@@ -3,14 +3,10 @@
 ##Sadalla jaolliset vuodet ovat karkausvuosia vain jos ne ovat jaollisia myös neljälläsadalla.
 year = int(input("Anna vuosiluku: "))
 
-if int(year) / 400 == 0:
-    print("Vuosi on karkausvuosi")
-elif int(year) / 100 == 0:
-    print("Vuosi ei ole karkausvuosi")
-elif int(year) / 4 == 0:
-    print("Vuosi on karkausvuosi")
+if year % 4 == 0 and (year % 100 != 0 or year % 400 == 0):
+    print("Annettu vuosi oli karkausvuosi.")
 else:
-    print("Vuosi ei ole karkausvuosi")
+    print("Annettu vuosi ei ole karkausvuosi")
 
 
 #JOS
