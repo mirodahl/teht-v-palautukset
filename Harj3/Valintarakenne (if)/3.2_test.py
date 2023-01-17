@@ -16,10 +16,12 @@ print("B on ikkunaton hytti autokannen yläpuolella")
 print("C on ikkunaton hytti autokannen alapuolella")
 
 cabin_class = input("Ole hyvä ja valitse mieleisesi hyttiluokka: ")
+if cabin_class=="LUX"or"A"or"B"or"C":
+    print("Kiitos valinnastasi!")
+else:
+    print("Virheellinen hyttiluokka!")
 
-print("Kiitos valinnastasi!") if input == "LUX" or "A" or "B" or "C" else print("Virheellinen hyttiluokka!")
-
-#if input == "LUX" or "A" or "B" or "C":
+#if input=="LUX"or"A"or"B"or"C":
 #    print("Kiitos valinnastasi!")
-#    else:
+#else:
 #    print("Virheellinen hyttiluokka!")
