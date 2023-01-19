@@ -18,3 +18,4 @@ elif gender == 2 and (int(hg) <= 116):
     print("Hemoglobiini on alhainen")
 elif gender == 2 and (int(hg) >= 176):
     print("Hemogblobiini on korkea")
+
