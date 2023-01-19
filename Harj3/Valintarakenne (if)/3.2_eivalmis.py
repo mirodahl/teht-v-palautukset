@@ -14,14 +14,9 @@ print("LUX on parvekkeellinen hytti yläkannella")
 print("A on ikkunallinen hytti autokannen yläpuolella")
 print("B on ikkunaton hytti autokannen yläpuolella")
 print("C on ikkunaton hytti autokannen alapuolella")
-
-cabin_class = input("Ole hyvä ja valitse mieleisesi hyttiluokka: ")
-if cabin_class=="LUX"or"A"or"B"or"C":
-    print("Kiitos valinnastasi!")
-else:
-    print("Virheellinen hyttiluokka!")
-
-#if input=="LUX"or"A"or"B"or"C":
-#    print("Kiitos valinnastasi!")
-#else:
-#    print("Virheellinen hyttiluokka!")
+print("Ole hyvä ja valitse mieleisesi hyttiluokka")
+get_cabinclass = int(input("1 = LUX, 2 = A, 3 = B tai 4 = C: "))
+if int(get_cabinclass) == 1 or 2 or 3 or 4:
+ print("Kiitos valinnastasi!")
+elif int(get_cabinclass) > 4: #jostain syystä tämä ei halua toimia ollenkaan
+ print("Virheellinen hyttiluokka!")
