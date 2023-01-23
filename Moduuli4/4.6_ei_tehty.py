@@ -14,3 +14,20 @@
 # edellä kuvatulla menetelmällä. Lopuksi ohjelma tulostaa piin likiarvon käyttäjälle.
 # (Huomaa, että jokaisesta arvotusta pisteestä (x,y) on helppoa testata onko se yksikköympyrän A sisällä:
 # riittää testata, toteuttaako piste epäyhtälön x^2+y^2<1.)
+import random
+
+N = 1000000
+counter = 0
+n = 0
+while counter < N:
+    counter += 1
+    x = random.uniform(-1, 1)
+    y = random.uniform(-1, 1)
+    # print(f"arvotty piste {x}, {y}")
+    # onko piste yksikköympyrän sisällä: x^2+y^2<1
+    # print(f"{x * x + y * y < 1}")
+    if x * x + y * y < 1:
+        # print("on sisällä")
+        n += 1
+print(f"Pisteitä arvottu yhteensä {counter}, joista {n} kpl ympyrän sisällä")
+# laske piin likiarvo käyttäen annettua kaavaa - not done
