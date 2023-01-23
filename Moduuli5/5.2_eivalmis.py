@@ -12,11 +12,4 @@ while number!="":
     number = input("Anna seuraava luku tai lopeta painamalla Enter: ")
     numbers_amount = numbers_amount + 1
 for n in numbers:
-    if numbers_amount > 5:
-        print(numbers[4])
-        print(numbers[3])
-        print(numbers[2])
-        print(numbers[1])
-        print(numbers[0])
-    else:
         print(f"{n}")
