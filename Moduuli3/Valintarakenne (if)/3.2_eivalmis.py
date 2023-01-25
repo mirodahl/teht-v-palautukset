@@ -16,7 +16,7 @@ print("B on ikkunaton hytti autokannen yläpuolella")
 print("C on ikkunaton hytti autokannen alapuolella")
 print("Ole hyvä ja valitse mieleisesi hyttiluokka")
 get_cabinclass = int(input("1 = LUX, 2 = A, 3 = B tai 4 = C: "))
-if int(get_cabinclass) == 1 or 2 or 3 or 4:
+if int(get_cabinclass) == (1 or 2 or 3 or 4):
  print("Kiitos valinnastasi!")
 elif int(get_cabinclass) > 4: #jostain syystä tämä ei halua toimia ollenkaan
  print("Virheellinen hyttiluokka!")
