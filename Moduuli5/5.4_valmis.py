@@ -4,11 +4,15 @@
 # kuin ne syötettiin.
 # käytä for-toistorakennetta nimien kysymiseen ja for/in toistorakennetta niiden läpikäymiseen.
 cities = []
+cityamount = 0
 print("Anna viisi (5) kaupungin nimeä")
-print("Voit lopettaa syötön painamalla ENTER")
 city = input("Anna ensimmäinen kaupunki: ")
-while city!="":
-    cities.append(city)
+cities.append(city)
+cityamount = cityamount + 1
+while cityamount < 5:
     city = input("Anna seuraava kaupunki: ")
-for n in cities:
-    print (f"{n}")
+    cities.append(city)
+    cityamount = cityamount + 1
+
+for i in range(0, len(cities)):
+    print(cities[i])
