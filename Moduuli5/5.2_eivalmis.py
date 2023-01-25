@@ -12,5 +12,5 @@ while number_Str != "":
     numbers.append(number)
     number_Str = input("Anna seuraava luku tai lopeta painamalla Enter: ")
     #numbers_amount = numbers_amount + 1
-for index in range(0, 5):
-    print(numbers[index]) #toimii muuten, mutta esim. antamalla luvut 1-6 ohjelma ei tulosta 65432 vaikka sort on käännetty
+for i in range(0, 5):
+    print(numbers[i]) #toimii muuten, mutta esim. antamalla luvut 1-6 ohjelma ei tulosta 65432 vaikka sort on käännetty

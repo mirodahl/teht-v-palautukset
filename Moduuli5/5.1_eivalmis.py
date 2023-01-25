@@ -1,26 +1,19 @@
 #Kirjoita ohjelma, joka kysyy käyttäjältä arpakuutioiden lukumäärän.
 #Ohjelma heittää kerran kaikkia arpakuutioita ja tulostaa silmälukujen summan.
 # Käytä for-toistorakennetta.
-import random
-dice_amount = []
-dice_amounts = dice_amount
-dice_sides = 6
-dice_request = int(input("Kuinka montaa noppaa heitämme? Lasken jokaisen nopan lukujen summan. Paina sen jälkeen ENTER jatkaaksesi."))
-while dice_request!="":
-    dice_amount.append(dice_request)
-    dice_request = input("Paina ENTER jatkaaksesi.")
-    def dice_roll(dice_amounts,dice_sides):
-        for i in range (0,dice_amounts):
-            die = random.randint(1, 6)
-            yield die
-for num in range(0):
-    print(f"{dice_roll}")
-#    def dice_roll(dice_amounts,dice_sides):
-#        for i in range (0,dice_amounts):
-#            die = random.randint(1, 6)
-#            yield die
-#for num in range(1):
-#    print("Heitettyjen noppien määrä")
-#    print(f"{num}")
-#    generator = dice_roll(dice_amounts,dice_sides)
-#    print(sum(generator))
+#import random
+import numpy as np
+dices = []
+dicesgiven = 0
+while dicesgiven == 0:
+    diceReq = int(input("Anna arpakuutioiden määrä: "))
+    dices.append(diceReq)
+    dicesgiven = dicesgiven + 1
+    dice = dices[0]
+    if dicesgiven == 1:
+        for i in range(0, len(dices)):
+            print(list(np.random.randint(low=1, high=6, size=diceReq)))
+            oncemore = sum(list)
+            print(oncemore)
+
+            def abc 
