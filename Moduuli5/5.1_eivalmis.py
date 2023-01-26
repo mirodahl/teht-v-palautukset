@@ -16,4 +16,4 @@ while dicesgiven == 0:
             oncemore = sum(list)
             print(oncemore)
 
-            def abc 
+            de
