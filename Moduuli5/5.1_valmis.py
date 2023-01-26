@@ -12,8 +12,6 @@ while dicesgiven == 0:
     dice = dices[0]
     if dicesgiven == 1:
         for i in range(0, len(dices)):
-            print(list(np.random.randint(low=1, high=6, size=diceReq)))
-            oncemore = sum(list)
-            print(oncemore)
+            print(sum(list(np.random.randint(low=1, high=6, size=diceReq))))
 
-            de
+
