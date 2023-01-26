@@ -8,3 +8,4 @@ pizzawidth1 = int(input("Ensimmäisen pitsan halkaisija: "))
 pizzaprice1 = int(input("Ensimmäisen pitsan hinta: "))
 pizzawidth2 = int(input("Toisen pitsan halkaisija: "))
 pizzaprice2 = int(input("Toisen pitsan hinta: "))
+

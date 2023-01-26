@@ -3,3 +3,5 @@
 # Muunnos on tehtävä aliohjelmaa hyödyntäen.
 # Muuntamista jatketaan siihen saakka, kunnes käyttäjä syöttää negatiivisen gallonamäärän.
 #Yksi gallona on 3,785 litraa.
+
+gallons = int(input("Anna gallonat, muunnan litroiksi: "))
