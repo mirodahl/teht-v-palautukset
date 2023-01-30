@@ -4,7 +4,6 @@
 # Pääohjelma tulostaa kunkin heiton jälkeen saadun silmäluvun.
 import random
 diceresult = 0
-kutonen = False
 print("Heitän noppaa niin kauan kunnes saan silmäluvun 6")
 
 
@@ -13,10 +12,9 @@ def noppa():
 
 result = noppa()
 while result != 6:
-    print(result)
+    print("Heitän uudestaan")
     result = noppa()
-    kutonen = False
     if result == 6:
         print(result)
         result = noppa()
-        kutonen = True
+        break
