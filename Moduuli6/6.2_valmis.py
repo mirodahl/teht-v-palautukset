@@ -20,5 +20,4 @@ while result != dicesides:
     if result == dicesides:
         print(result)
         result = noppa()
-
         break
