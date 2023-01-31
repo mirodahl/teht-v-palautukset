@@ -9,3 +9,14 @@ pizzaprice1 = int(input("Ensimmäisen pitsan hinta: "))
 pizzawidth2 = int(input("Toisen pitsan halkaisija: "))
 pizzaprice2 = int(input("Toisen pitsan hinta: "))
 
+def pizzavalue():
+    pizzavalue1 = pizzawidth1 / pizzaprice1
+    pizzavalue2 = pizzawidth2 / pizzaprice2
+    if pizzavalue1 > pizzavalue2:
+        print("Ensimmäinen pitsa on parempaa vastinetta rahalle")
+    elif pizzavalue2 > pizzavalue1:
+        print("Toinen pitsa on parempaa vastinetta rahalle")
+    else:
+        print("Pitsat ovat yhtä hyvä vastine rahalle")
+
+print(pizzavalue())
