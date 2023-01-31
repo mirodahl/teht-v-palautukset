@@ -24,7 +24,10 @@ def airport_details():
         print(f"{airport}")
     return
 
-airports = {"EFHK" : "Helsinki-Vantaan lentoasema"}
+airports = {"EFHK" : "Helsinki-Vantaan lentoasema",
+            "EFET" : "Enontekiön lentoasema",
+            "EFIV" : "Ivalon lentoasema",
+            "EFKI" : "Kajaanin lentoasema"}
 
 appstate = True
 userfunction = -1
