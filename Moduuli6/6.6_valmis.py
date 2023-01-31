@@ -16,7 +16,9 @@ def pizzavalue():
         print("Ensimmäinen pitsa on parempaa vastinetta rahalle")
     elif pizzavalue2 > pizzavalue1:
         print("Toinen pitsa on parempaa vastinetta rahalle")
+    elif pizzavalue1 == pizzavalue2:
+        print("Molemmat pitsat ovat yhtä hyvä vastine rahalle")
     else:
-        print("Pitsat ovat yhtä hyvä vastine rahalle")
+        print("Jotain meni pieleen, yritä uudestaan.")
 
 print(pizzavalue())

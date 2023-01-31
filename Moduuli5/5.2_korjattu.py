@@ -14,4 +14,4 @@ while number_Str != "":
     #numbers_amount = numbers_amount + 1
 for i in range(0, 5):
     numbers.sort(reverse=True)
-    print(numbers[i]) #toimii muuten, mutta esim. antamalla luvut 1-6 ohjelma ei tulosta 65432 vaikka sort on käännetty
+    print(numbers[i]) #korjattu palautteen perusteella
