@@ -15,7 +15,7 @@ def airport_add():
 def airport_search():
     callsign = input("Anna lentokentän ICAO-koodi: ")
     if callsign in airports:
-        print(f"{callsign} {airports}")#printtaa kaikki lentokentät...
+        print(f"{callsign} {airports}")#bugi...printtaa kaikki lentokentät
     else:
         print("Lentokenttää ei löydy")
     return

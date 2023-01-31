@@ -2,7 +2,10 @@
 # Ohjelma palauttaa listassa olevien lukujen summan.
 # Kirjoita testausta varten pääohjelma, jossa luot listan, kutsut funktiota ja tulostat sen palauttaman summan.
 numbers = []
+numbersint = []
 def abc():
+    #for element in numbers:
+    #    numbersint.append(int(element))
     print(sum(numbers))
 
 
@@ -12,7 +15,10 @@ numbers.append(number)
 while number != "":
     number = input("Anna seuraava kokonaisluku: ")
     numbers.append(number)
-
-print(abc())
+    if number:
+        as_float = float(number)
+    else:
+        number = None
+        print(abc())
 
 
