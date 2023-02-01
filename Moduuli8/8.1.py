@@ -1,10 +1,10 @@
 import mysql.connector
 
 def searchAirports(ICAO):
-    sql = "SELECT Numero, Sukunimi, Etunimi, Palkka FROM airports"
-    sql += " WHERE ICAO='" + ICAO + "'"
+    sql = "SELECT Name, Municipality FROM Airports"
+    sql += " WHERE ident='" + ICAO + "'"
     print(sql)
-    kursori = yhteys.cursor()
+    kursori = connection.cursor()
     kursori.execute(sql)
     tulos = kursori.fetchall()
     if kursori.rowcount >0 :
