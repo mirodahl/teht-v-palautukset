@@ -14,10 +14,10 @@ connection = mysql.connector.connect(
          autocommit=True
          )
 
-def search_airports(ICAO):
+def search_airports(iso_country):
     sql = "SELECT name, municipality " +\
           "FROM airport " +\
-          " WHERE ident='" + ICAO + "'"
+          " WHERE ident='" + iso_country + "'"
     print(sql)
     kursori = connection.cursor()
     kursori.execute(sql)
@@ -27,7 +27,7 @@ def search_airports(ICAO):
             print(f"ICAO-koodilla löytynyt kenttä on {rivi[0]} ja sen sijainti on {rivi[1]}")
     return
 
-ICAO = input("Anna ICAO-koodi: ")
-print(search_airports(ICAO))
+iso_country = input("Anna ICAO-koodi: ")
+print(search_airports(iso_country))
 
 connection.close()
