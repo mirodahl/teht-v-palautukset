@@ -1,3 +1,8 @@
+#Kirjoita ohjelma, joka kysyy käyttäjältä maakoodin (esimerkiksi FI) ja tulostaa kyseisessä maassa
+# olevien lentokenttien lukumäärät tyypeittäin.
+# Esimerkiksi Suomen osalta tuloksena on saatava tieto siitä,
+# että pieniä lentokenttiä on 65 kappaletta, helikopterikenttiä on 15 kappaletta jne.
+
 import mysql.connector
 
 connection = mysql.connector.connect(
@@ -9,18 +14,20 @@ connection = mysql.connector.connect(
          autocommit=True
          )
 
-def haeTyöntekijätSukunimellä(sukunimi):
-    sql = "SELECT Numero, Sukunimi, Etunimi, Palkka FROM Työntekijä"
-    sql += " WHERE Sukunimi='" + sukunimi + "'"
+def search_airports(ICAO):
+    sql = "SELECT name, municipality " +\
+          "FROM airport " +\
+          " WHERE ident='" + ICAO + "'"
     print(sql)
-    kursori = yhteys.cursor()
+    kursori = connection.cursor()
     kursori.execute(sql)
     tulos = kursori.fetchall()
-    if kursori.rowcount >0 :
+    if kursori.rowcount > 0:
         for rivi in tulos:
-            print(f"Päivää! Olen {rivi[2]} {rivi[1]}. Palkkani on {rivi[3]} euroa kuussa.")
+            print(f"ICAO-koodilla löytynyt kenttä on {rivi[0]} ja sen sijainti on {rivi[1]}")
     return
 
+ICAO = input("Anna ICAO-koodi: ")
+print(search_airports(ICAO))
 
-sukunimi = input("Anna sukunimi: ")
-haeTyöntekijätSukunimellä(sukunimi)
+connection.close()
