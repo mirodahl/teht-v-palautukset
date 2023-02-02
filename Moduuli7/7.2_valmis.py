@@ -4,6 +4,7 @@
 # Lopuksi ohjelma luettelee syötetyt nimet yksi kerrallaan allekkain mielivaltaisessa järjestyksessä.
 # Käytä joukkotietorakennetta nimien tallentamiseen.
 #import random
+
 names = set()
 
 print("Kyselen sinulta nimiä. Voit lopettaa ohjelman suorittamisen, syöttämällä tyhjän.")
