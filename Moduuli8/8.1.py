@@ -10,7 +10,8 @@ connection = mysql.connector.connect(
          )
 
 def searchAirports(ICAO):
-    sql = "SELECT Name, Municipality FROM Airports"
+    sql = "SELECT name, municipality" +\
+          "FROM airport"
     sql += " WHERE ident='" + ICAO + "'"
     print(sql)
     kursori = connection.cursor()
@@ -18,10 +19,10 @@ def searchAirports(ICAO):
     tulos = kursori.fetchall()
     if kursori.rowcount >0 :
         for rivi in tulos:
-            print(f"Päivää! Olen {rivi[2]} {rivi[1]}. Palkkani on {rivi[3]} euroa kuussa.")
+            print(f"ICAO-koodilla löytynyt kenttä on {rivi[0]} ja sen sijainti on {rivi[1]}")
     return
 
 ICAO = input("Anna ICAO-koodi: ")
-searchAirports(ICAO)
+print(searchAirports(ICAO))
 
-#connection.close()
+connection.close()
