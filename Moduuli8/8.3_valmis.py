@@ -6,7 +6,7 @@
 # Kirjoita hakukenttään geopy ja vie asennus loppuun.
 
 import mysql.connector
-
+from geopy import distance
 connection = mysql.connector.connect(
          host='127.0.0.1',
          port=3306,
@@ -16,22 +16,34 @@ connection = mysql.connector.connect(
          autocommit=True
          )
 
-def search_airports(ICAO):
-    sql = "SELECT name, municipality " +\
-          "FROM airport " +\
-          " WHERE ident='" + ICAO + "'"
-    print(sql)
-    kursori = connection.cursor()
-    kursori.execute(sql)
-    tulos = kursori.fetchall()
-    if kursori.rowcount > 0:
-        for rivi in tulos:
-            print(f"ICAO-koodilla löytynyt kenttä on {rivi[0]} ja sen sijainti on {rivi[1]}")
-    return
-
 print("Tarkistan kahden haluamasi kentän välisen etäisyyden")
 ICAO = input("Anna ensimmäisen kentän ICAO-koodi: ")
 ICAO2 = input("Anna verrattavan kentän ICAO-koodi:")
-print(search_airports(ICAO))
 
-connection.close()
+sql = "SELECT longitude_deg, latitude_deg " +\
+          "FROM airport " +\
+          " WHERE ident='" + ICAO + "'"
+print(sql)
+kursori = connection.cursor()
+kursori.execute(sql)
+tulos = kursori.fetchall()
+if kursori.rowcount > 0:
+    for row in tulos:
+        print(f"{row[0]}, {row[1]}")
+sql = "SELECT longitude_deg, latitude_deg " +\
+          "FROM airport " +\
+          " WHERE ident='" + ICAO2 + "'"
+print(sql)
+kursori = connection.cursor()
+kursori.execute(sql)
+tulos2 = kursori.fetchall()
+if kursori.rowcount > 0:
+    for rivi in tulos2:
+        print(f"{rivi[0]}, {rivi[1]}")
+def distancecalculator():
+    yksi = (row[0], row[1])
+    kaksi = (rivi[0], rivi[1])
+    print(distance.distance(yksi, kaksi).miles)
+
+print("Hakemiesi kenttien etäisyys maileissa:")
+print(distancecalculator())
