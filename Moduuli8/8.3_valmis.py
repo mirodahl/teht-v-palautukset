@@ -47,3 +47,5 @@ def distancecalculator():
 
 print("Hakemiesi kenttien etäisyys maileissa:")
 print(distancecalculator())
+
+connection.close()
