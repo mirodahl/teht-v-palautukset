@@ -29,7 +29,9 @@ def search_airports(ICAO):
             print(f"ICAO-koodilla löytynyt kenttä on {rivi[0]} ja sen sijainti on {rivi[1]}")
     return
 
-ICAO = input("Anna ICAO-koodi: ")
+print("Tarkistan kahden haluamasi kentän välisen etäisyyden")
+ICAO = input("Anna ensimmäisen kentän ICAO-koodi: ")
+ICAO2 = input("Anna verrattavan kentän ICAO-koodi:")
 print(search_airports(ICAO))
 
 connection.close()
