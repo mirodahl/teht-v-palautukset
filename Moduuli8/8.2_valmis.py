@@ -5,6 +5,7 @@
 # että pieniä lentokenttiä on 65 kappaletta, helikopterikenttiä on 15 kappaletta jne.
 
 import mysql.connector
+from tabulate import tabulate
 
 connection = mysql.connector.connect(
          host='127.0.0.1',
@@ -15,20 +16,20 @@ connection = mysql.connector.connect(
          autocommit=True
          )
 
-def search_airports(ICAO):
-    sql = "SELECT name, municipality " +\
-          "FROM airport " +\
-          " WHERE ident='" + ICAO + "'"
+def search_airports(countrycode):
+    sql = "SELECT type, count(*)" + \
+          "FROM airport " + \
+          "WHERE iso_country='" + countrycode + "'" "GROUP by type"
+
     print(sql)
     kursori = connection.cursor()
     kursori.execute(sql)
     tulos = kursori.fetchall()
-    if kursori.rowcount > 0:
-        for rivi in tulos:
-            print(f"ICAO-koodilla löytynyt kenttä on {rivi[0]} ja sen sijainti on {rivi[1]}")
+
+    print(tabulate(tulos, headers=['Tyyppi', 'Määrä'], tablefmt='psql'))
     return
 
-ICAO = input("Anna ICAO-koodi: ")
-print(search_airports(ICAO))
+countrycode = input("Anna maatunnus: ")
+print(search_airports(countrycode))
 
 connection.close()
