@@ -8,8 +8,8 @@ class Car:
     def __init__(self, regplate, topspd):
         self.regplate = regplate
         self.topspd = topspd
-        self.curspd = 60
-        self.travdist = 2000
+        self.curspd = 0
+        self.travdist = 0
     def accelerate(self, change):
         self.curspd = self.curspd + change
         if self.curspd > self.topspd:
@@ -27,6 +27,7 @@ car = Car("ABC-123", 142)
 print(f"Rekisteritunnuksella {car.regplate} olevan auton huippunopeus {car.topspd} km/h, \n"
       f"tämän hetkinen nopeus {car.curspd} km/h ja kuljettu matka {car.travdist} km.")
 
+car.accelerate(20)
 car.travel(1.5)
 car.accelerate(30)
 car.travel(1)
