@@ -58,16 +58,19 @@ def race():
 
 
 
-
+#luodaan autot
 for i in range(10):
     cars.append(Car("ABC- " + str(i+1), random.randint(100, 200)))
 
+#kisataan!
 race()
 
+#muutetaan intit floateiksi prettytablelle
 float_topspd = [float(car.topspd) for car in cars]
 float_curspd = [float(car.curspd) for car in cars]
 float_travdist = [float(car.travdist) for car in cars]
 
+#prettytable taulukko
 cartable.field_names = ["Registerplate", "Top speed", "Current speed", "Travelled distance"]
 cartable.add_rows(
     [
