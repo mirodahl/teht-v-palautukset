@@ -37,29 +37,32 @@ class Car:
         return self.travdist
     def __str__(self):
         return "{}".format(self.regplate)
-    def race(self, distance):
-        while distance < 10000:
-            for car in cars:
-                car.accelerate(random.randint(-15, 10))
-                car.travel(1)
-
-
-
-
-#def race():
+#    def race(self, distance):
 #        for car in cars:
-#            car.accelerate(random.randint(-15, 10))
-#            car.travel(1)
-#            if car.travdist == 1000 in cars:
-#                #car.accelerate(-500)
-#                for car in cars:
-#                    cardist.append(Car(car.travdist))
-#                return
+#            while distance <= 10000:
+#                car.accelerate(random.randint(-15, 10))
+#                car.travel(1)
+#                print(f"Auto {car.regplate}, nykyinen nopeus {car.curspd}, kuljettu matka {car.travdist}")
+
+
+
+
+def race():
+    race_over = False
+    while not race_over:
+        for car in cars:
+            car.accelerate(random.randint(-15, 10))
+            car.travel(1)
+            if car.travdist == 10000:
+                race_over = True
+
+
+
 
 for i in range(10):
     cars.append(Car("ABC- " + str(i+1), random.randint(100, 200)))
 
-#race()
+race()
 
 float_topspd = [float(car.topspd) for car in cars]
 float_curspd = [float(car.curspd) for car in cars]
