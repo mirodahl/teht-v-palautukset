@@ -87,5 +87,5 @@ cartable.add_rows(
     ]
 )
 
-cartable.reversesort = True
+#cartable.reversesort = True
 print(cartable.get_string(sortby="Travelled distance"))
