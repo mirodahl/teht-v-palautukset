@@ -13,7 +13,7 @@ import random
 from prettytable import PrettyTable
 
 cars = []
-cardist = []
+
 cartable = PrettyTable()
 class Car:
     car_count = 0
@@ -87,4 +87,5 @@ cartable.add_rows(
     ]
 )
 
-print(cartable)
+cartable.reversesort = True
+print(cartable.get_string(sortby="Travelled distance"))
