@@ -45,4 +45,5 @@ class Elevator:
 
 elevator = Elevator(1, 10)
 elevator.go_floor(5)
-elevator.go_floor(-5)
+elevator.go_floor(7)
+elevator.go_floor(1)
