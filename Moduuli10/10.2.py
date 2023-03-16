@@ -49,9 +49,11 @@ class House:
             elevator = Elevator(lowest, uppest)
             # hissit menevät nyt listassa indekseihin 1, 2, 3, ...
             self.elevators.insert(nro+1, elevator)
-    def house_elevator_go(self, elevator_no, new_floor):
-        for elevator_no in range(elevators[elevator_no]):
-                Elevator.go_floor(new_floor)
+    def house_elevator_go(self, elevator_no, destination):
+        if elevator_no in self.elevators:
+            Elevator.go_floor(destination)
+        else:
+            print("Kai sinä tiedät kuinka monta hissiä sinulla on...")
 
 
 house = House(1, 5, 5)
