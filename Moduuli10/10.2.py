@@ -57,4 +57,4 @@ class House:
 
 
 house = House(1, 5, 5)
-house.house_elevator_go(2, 2)
+house.house_elevator_go(1, 1)
