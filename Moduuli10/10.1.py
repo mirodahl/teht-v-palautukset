@@ -13,20 +13,33 @@ class Elevator:
     def __init__(self, lowest, uppest):
         self.lowest = lowest
         self.uppest = uppest
-        self.floor = lowest      # kerros, jossa hissi on; aluksi alimmassa
+        self.floor = lowest
+        print(f"Hissi luotu, alin kerros: {lowest}, ylin kerros: {uppest}")
 
     def floor_up(self):
         self.floor = self.floor + 1
         print(f"Hissi on kerroksessa {self.floor}")
         return
 
+    def floor_down(self):
+        self.floor = self.floor - 1
+        print(f"Hissi on kerroksessa {self.floor}")
+        return
+
     def go_floor(self, new_floor):
-        # siirrytään tarvittaessa ylöspäin
+        # siirrytään ylöspäin
         while new_floor > self.floor:
+            if new_floor >= self.uppest:
+                new_floor = self.uppest
+                print("Hissi on ylimmässä kerroksessa.")
             self.floor_up()
-        # siirrytään tarvittaessa alaspäin
+        # siirrytään alaspäin
         while new_floor < self.floor:
-            pass    # TODO
-        # xtra: ilmoitus että ollaan halutussa kerroksessa
+            if new_floor <= self.lowest:
+                new_floor = self.lowest
+                print("Hissi on alimmassa kerroksessa.")
+        print(f"Hissi on saapunut kerrokseen {self.floor}")
         print("Hissi on perillä.")
         return
+
+elevator = Elevator(1, 10)
