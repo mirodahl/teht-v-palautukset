@@ -48,10 +48,11 @@ class House:
         for nro in range(floors):
             elevator = Elevator(lowest, uppest)
             # hissit menevät nyt listassa indekseihin 1, 2, 3, ...
-            self.elevator.insert(nro+1, elevator)
-
-    def elevator_go(self, elevator_no, destination_floor):
-        for i in range(destination_floor):
+            self.elevators.insert(nro+1, elevator)
+    def house_elevator_go(self, elevator_no, new_floor):
+        for elevator_no in range(elevators[elevator_no]):
+                Elevator.go_floor(new_floor)
 
 
 house = House(1, 5, 5)
+house.house_elevator_go(2, 2)
