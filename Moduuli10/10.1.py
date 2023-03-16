@@ -31,15 +31,18 @@ class Elevator:
         while new_floor > self.floor:
             if new_floor >= self.uppest:
                 new_floor = self.uppest
-                print("Hissi on ylimmässä kerroksessa.")
+                #print("Hissi on ylimmässä kerroksessa.")
             self.floor_up()
         # siirrytään alaspäin
         while new_floor < self.floor:
             if new_floor <= self.lowest:
                 new_floor = self.lowest
-                print("Hissi on alimmassa kerroksessa.")
+                #print("Hissi on alimmassa kerroksessa.")
+            self.floor_down()
         print(f"Hissi on saapunut kerrokseen {self.floor}")
         print("Hissi on perillä.")
         return
 
 elevator = Elevator(1, 10)
+elevator.go_floor(5)
+elevator.go_floor(-5)
