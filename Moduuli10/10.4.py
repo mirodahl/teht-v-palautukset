@@ -73,8 +73,12 @@ class Race:
             for car in cars:
                 car.accelerate(random.randint(-15, 10))
                 car.travel(1)
+                race.race_finished()
                 return
     def race_finished(self):
+        float_topspd = [float(car.topspd) for car in cars]
+        float_curspd = [float(car.curspd) for car in cars]
+        float_travdist = [float(car.travdist) for car in cars]
         for car in cars:
             if car.travdist == self.racedist:
                 self.race_over = True
@@ -99,8 +103,13 @@ class Race:
             else:
                 self.race_over = False
                 print("Kilpailu on vielä kesken.")
-                return race.live_situation
+                race.live_situation()
+                race.hour_pass()
+            return
     def live_situation(self):
+        float_topspd = [float(car.topspd) for car in cars]
+        float_curspd = [float(car.curspd) for car in cars]
+        float_travdist = [float(car.travdist) for car in cars]
         if not self.race_over == True:
             # prettytable taulukko
             cartable.field_names = ["Registerplate", "Top speed", "Current speed", "Travelled distance"]
@@ -119,7 +128,8 @@ class Race:
                 ]
             )
             # cartable.reversesort = True
-            return print(cartable.get_string(sortby="Travelled distance"))
+            print(cartable.get_string(sortby="Travelled distance"))
+            return
 
 ###pääohjelma alkaa
 
@@ -128,9 +138,21 @@ for i in range(10):
     cars.append(Car("ABC- " + str(i+1), random.randint(100, 200)))
 
 #muutetaan intit floateiksi prettytablelle
-float_topspd = [float(car.topspd) for car in cars]
-float_curspd = [float(car.curspd) for car in cars]
-float_travdist = [float(car.travdist) for car in cars]
+#float_topspd = [float(car.topspd) for car in cars]
+#float_curspd = [float(car.curspd) for car in cars]
+#float_travdist = [float(car.travdist) for car in cars]
+
+#kisan kulku funktio
+def race_go():
+    while race.race_over == False:
+        race.hour_pass()
+        return
 
 #luodaan suuri romuralli
 race = Race("Suuri romuralli", 8000, cars)
+
+race_go()
+
+
+
+
