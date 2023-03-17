@@ -36,109 +36,102 @@ import random
 from prettytable import PrettyTable
 
 cars = []
-cartable = PrettyTable()
+car_table = PrettyTable()
 
 
 class Car:
     car_count = 0
 
-    def __init__(self, regplate, topspd):
-        self.regplate = regplate
-        self.topspd = topspd
-        self.curspd = 0
-        self.travdist = 0
+    def __init__(self, reg_plate, top_spd):
+        self.reg_plate = reg_plate
+        self.top_spd = top_spd
+        self.cur_spd = 0
+        self.trav_dist = 0
         Car.car_count += 1
-        print(f"{Car.car_count}. Auto luotu, rekno: {regplate}, huippunopeus {topspd}")
+        print(f"{Car.car_count}. Auto luotu, rekno: {reg_plate}, huippunopeus {top_spd}")
 
     def accelerate(self, change):
-        self.curspd = self.curspd + change
-        if self.curspd > self.topspd:
-            self.curspd = self.topspd
-        if self.curspd < 0:
-            self.curspd = 0
-        return self.curspd
+        self.cur_spd = self.cur_spd + change
+        if self.cur_spd > self.top_spd:
+            self.cur_spd = self.top_spd
+        if self.cur_spd < 0:
+            self.cur_spd = 0
+        return self.cur_spd
 
     def travel(self, hours):
-        change = self.curspd * hours
-        self.travdist = self.travdist + change
-        return self.travdist
+        change = self.cur_spd * hours
+        self.trav_dist = self.trav_dist + change
+        return self.trav_dist
 
     def __str__(self):
-        return "{}".format(self.regplate)
+        return "{}".format(self.reg_plate)
 
 
 class Race:
-    def __init__(self, racename, racedist, cars):
-        self.racename = racename
-        self.racedist = racedist
+    def __init__(self, race_name, race_dist, cars):
+        self.race_name = race_name
+        self.race_dist = race_dist
         self.race_over = False
         self.cars = cars
-        print(f"Kisa {racename} aloitettu! Kisan pituus {racedist} kilometriä.")
+        print(f"Kisa {race_name} aloitettu! Kisan pituus {race_dist} kilometriä.")
 
     def hour_pass(self):
         if self.race_over is False:
             for car in cars:
                 car.accelerate(random.randint(-15, 10))
                 car.travel(1)
-                race.race_finished()
-                return
+                return self.race_finished()
 
     def race_finished(self):
-        float_topspd = [float(car.topspd) for car in cars]
-        float_curspd = [float(car.curspd) for car in cars]
-        float_travdist = [float(car.travdist) for car in cars]
+
         for car in cars:
-            if car.travdist == self.racedist:
+            if car.trav_dist == self.race_dist:
                 self.race_over = True
-                cartable.field_names = ["Registerplate", "Top speed", "Current speed", "Travelled distance"]
-                cartable.add_rows(
+                car_table.field_names = ["Registerplate", "Top speed", "Current speed", "Travelled distance"]
+                car_table.add_rows(
                     [
-                        [cars[0], float_topspd[0], float_curspd[0], float_travdist[0]],
-                        [cars[1], float_topspd[1], float_curspd[1], float_travdist[1]],
-                        [cars[2], float_topspd[2], float_curspd[2], float_travdist[2]],
-                        [cars[3], float_topspd[3], float_curspd[3], float_travdist[3]],
-                        [cars[4], float_topspd[4], float_curspd[4], float_travdist[4]],
-                        [cars[5], float_topspd[5], float_curspd[5], float_travdist[5]],
-                        [cars[6], float_topspd[6], float_curspd[6], float_travdist[6]],
-                        [cars[7], float_topspd[7], float_curspd[7], float_travdist[7]],
-                        [cars[8], float_topspd[8], float_curspd[8], float_travdist[8]],
-                        [cars[9], float_topspd[9], float_curspd[9], float_travdist[9]],
+                        [cars[0], float_top_spd[0], float_cur_spd[0], float_trav_dist[0]],
+                        [cars[1], float_top_spd[1], float_cur_spd[1], float_trav_dist[1]],
+                        [cars[2], float_top_spd[2], float_cur_spd[2], float_trav_dist[2]],
+                        [cars[3], float_top_spd[3], float_cur_spd[3], float_trav_dist[3]],
+                        [cars[4], float_top_spd[4], float_cur_spd[4], float_trav_dist[4]],
+                        [cars[5], float_top_spd[5], float_cur_spd[5], float_trav_dist[5]],
+                        [cars[6], float_top_spd[6], float_cur_spd[6], float_trav_dist[6]],
+                        [cars[7], float_top_spd[7], float_cur_spd[7], float_trav_dist[7]],
+                        [cars[8], float_top_spd[8], float_cur_spd[8], float_trav_dist[8]],
+                        [cars[9], float_top_spd[9], float_cur_spd[9], float_trav_dist[9]],
                     ]
                 )
                 # cartable.reversesort = True
                 print("Kilpailu ohi!")
-                print(cartable.get_string(sortby="Travelled distance"))
+                return print(car_table.get_string(sortby="Travelled distance"))
             else:
                 self.race_over = False
                 print("Kilpailu on vielä kesken.")
-                race.live_situation()
-                race.hour_pass()
-            return
+                self.live_situation()
+                return self.hour_pass()
 
     def live_situation(self):
-        float_topspd = [float(car.topspd) for car in cars]
-        float_curspd = [float(car.curspd) for car in cars]
-        float_travdist = [float(car.travdist) for car in cars]
+
         if self.race_over is False:
             # prettytable taulukko
-            cartable.field_names = ["Registerplate", "Top speed", "Current speed", "Travelled distance"]
-            cartable.add_rows(
+            car_table.field_names = ["Registerplate", "Top speed", "Current speed", "Travelled distance"]
+            car_table.add_rows(
                 [
-                    [cars[0], float_topspd[0], float_curspd[0], float_travdist[0]],
-                    [cars[1], float_topspd[1], float_curspd[1], float_travdist[1]],
-                    [cars[2], float_topspd[2], float_curspd[2], float_travdist[2]],
-                    [cars[3], float_topspd[3], float_curspd[3], float_travdist[3]],
-                    [cars[4], float_topspd[4], float_curspd[4], float_travdist[4]],
-                    [cars[5], float_topspd[5], float_curspd[5], float_travdist[5]],
-                    [cars[6], float_topspd[6], float_curspd[6], float_travdist[6]],
-                    [cars[7], float_topspd[7], float_curspd[7], float_travdist[7]],
-                    [cars[8], float_topspd[8], float_curspd[8], float_travdist[8]],
-                    [cars[9], float_topspd[9], float_curspd[9], float_travdist[9]],
+                    [cars[0], float_top_spd[0], float_cur_spd[0], float_trav_dist[0]],
+                    [cars[1], float_top_spd[1], float_cur_spd[1], float_trav_dist[1]],
+                    [cars[2], float_top_spd[2], float_cur_spd[2], float_trav_dist[2]],
+                    [cars[3], float_top_spd[3], float_cur_spd[3], float_trav_dist[3]],
+                    [cars[4], float_top_spd[4], float_cur_spd[4], float_trav_dist[4]],
+                    [cars[5], float_top_spd[5], float_cur_spd[5], float_trav_dist[5]],
+                    [cars[6], float_top_spd[6], float_cur_spd[6], float_trav_dist[6]],
+                    [cars[7], float_top_spd[7], float_cur_spd[7], float_trav_dist[7]],
+                    [cars[8], float_top_spd[8], float_cur_spd[8], float_trav_dist[8]],
+                    [cars[9], float_top_spd[9], float_cur_spd[9], float_trav_dist[9]],
                 ]
             )
             # cartable.reversesort = True
-            print(cartable.get_string(sortby="Travelled distance"))
-            return
+            return print(car_table)  #.get_string(sortby="Travelled distance"))
 
 ###pääohjelma alkaa
 
@@ -149,9 +142,9 @@ for i in range(10):
     cars.append(Car("ABC- " + str(i+1), random.randint(100, 200)))
 
 #muutetaan intit floateiksi prettytablelle
-#float_topspd = [float(car.topspd) for car in cars]
-#float_curspd = [float(car.curspd) for car in cars]
-#float_travdist = [float(car.travdist) for car in cars]
+float_top_spd = [float(car.top_spd) for car in cars]
+float_cur_spd = [float(car.cur_spd) for car in cars]
+float_trav_dist = [float(car.trav_dist) for car in cars]
 
 #kisan kulku funktio
 
