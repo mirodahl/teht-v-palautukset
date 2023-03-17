@@ -36,7 +36,6 @@ import random
 from prettytable import PrettyTable
 
 cars = []
-
 cartable = PrettyTable()
 class Car:
     car_count = 0
@@ -67,7 +66,7 @@ class Race:
         self.racedist = racedist
         self.race_over = False
         self.cars = cars
-        print(f"Kisa aloitettu! Kisan pituus {racedist} kilometriä.")
+        print(f"Kisa {racename} aloitettu! Kisan pituus {racedist} kilometriä.")
 
     def hour_pass(self):
         if not self.race_over == True:
@@ -100,7 +99,7 @@ class Race:
             else:
                 self.race_over = False
                 print("Kilpailu on vielä kesken.")
-                return live_situation
+                return race.live_situation
     def live_situation(self):
         if not self.race_over == True:
             # prettytable taulukko
@@ -133,4 +132,5 @@ float_topspd = [float(car.topspd) for car in cars]
 float_curspd = [float(car.curspd) for car in cars]
 float_travdist = [float(car.travdist) for car in cars]
 
-#prettytable taulukko
+#luodaan suuri romuralli
+race = Race("Suuri romuralli", 8000, cars)
