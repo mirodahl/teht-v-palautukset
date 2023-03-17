@@ -87,24 +87,19 @@ class Race:
         for car in cars:
             if car.trav_dist == self.race_dist:
                 self.race_over = True
-                car_table.field_names = ["Registerplate", "Top speed", "Current speed", "Travelled distance"]
-                car_table.add_rows(
-                    [
-                        [cars[0], float_top_spd[0], float_cur_spd[0], float_trav_dist[0]],
-                        [cars[1], float_top_spd[1], float_cur_spd[1], float_trav_dist[1]],
-                        [cars[2], float_top_spd[2], float_cur_spd[2], float_trav_dist[2]],
-                        [cars[3], float_top_spd[3], float_cur_spd[3], float_trav_dist[3]],
-                        [cars[4], float_top_spd[4], float_cur_spd[4], float_trav_dist[4]],
-                        [cars[5], float_top_spd[5], float_cur_spd[5], float_trav_dist[5]],
-                        [cars[6], float_top_spd[6], float_cur_spd[6], float_trav_dist[6]],
-                        [cars[7], float_top_spd[7], float_cur_spd[7], float_trav_dist[7]],
-                        [cars[8], float_top_spd[8], float_cur_spd[8], float_trav_dist[8]],
-                        [cars[9], float_top_spd[9], float_cur_spd[9], float_trav_dist[9]],
-                    ]
-                )
-                # cartable.reversesort = True
-                print("Kilpailu ohi!")
-                return print(car_table.get_string(sortby="Travelled distance"))
+                print("Kilpailu ohi! Tässä tulokset:")
+                print(str(f"Reg NO  | Top spd | Speed now | Total Distance"))
+                print(str(f"{cars[0]}  | {float_top_spd[0]}   |   {float_cur_spd[0]}     |     {float_trav_dist[0]}"))
+                print(str(f"{cars[1]}  | {float_top_spd[1]}   |   {float_cur_spd[1]}     |     {float_trav_dist[1]}"))
+                print(str(f"{cars[2]}  | {float_top_spd[2]}   |   {float_cur_spd[2]}     |     {float_trav_dist[2]}"))
+                print(str(f"{cars[3]}  | {float_top_spd[3]}   |   {float_cur_spd[3]}     |     {float_trav_dist[3]}"))
+                print(str(f"{cars[4]}  | {float_top_spd[4]}   |   {float_cur_spd[4]}     |     {float_trav_dist[4]}"))
+                print(str(f"{cars[5]}  | {float_top_spd[5]}   |   {float_cur_spd[5]}     |     {float_trav_dist[5]}"))
+                print(str(f"{cars[6]}  | {float_top_spd[6]}   |   {float_cur_spd[6]}     |     {float_trav_dist[6]}"))
+                print(str(f"{cars[7]}  | {float_top_spd[7]}   |   {float_cur_spd[7]}     |     {float_trav_dist[7]}"))
+                print(str(f"{cars[8]}  | {float_top_spd[8]}   |   {float_cur_spd[8]}     |     {float_trav_dist[8]}"))
+                print(str(f"{cars[9]} | {float_top_spd[9]}   |   {float_cur_spd[9]}     |     {float_trav_dist[9]}"))
+                return
             else:
                 self.race_over = False
                 print("Kilpailu on vielä kesken.")
@@ -114,24 +109,18 @@ class Race:
     def live_situation(self):
 
         if self.race_over is False:
-            # prettytable taulukko
-            car_table.field_names = ["Registerplate", "Top speed", "Current speed", "Travelled distance"]
-            car_table.add_rows(
-                [
-                    [cars[0], float_top_spd[0], float_cur_spd[0], float_trav_dist[0]],
-                    [cars[1], float_top_spd[1], float_cur_spd[1], float_trav_dist[1]],
-                    [cars[2], float_top_spd[2], float_cur_spd[2], float_trav_dist[2]],
-                    [cars[3], float_top_spd[3], float_cur_spd[3], float_trav_dist[3]],
-                    [cars[4], float_top_spd[4], float_cur_spd[4], float_trav_dist[4]],
-                    [cars[5], float_top_spd[5], float_cur_spd[5], float_trav_dist[5]],
-                    [cars[6], float_top_spd[6], float_cur_spd[6], float_trav_dist[6]],
-                    [cars[7], float_top_spd[7], float_cur_spd[7], float_trav_dist[7]],
-                    [cars[8], float_top_spd[8], float_cur_spd[8], float_trav_dist[8]],
-                    [cars[9], float_top_spd[9], float_cur_spd[9], float_trav_dist[9]],
-                ]
-            )
-            # cartable.reversesort = True
-            return print(car_table)  #.get_string(sortby="Travelled distance"))
+            print(str(f"Reg NO  | Top spd | Speed now | Total Distance"))
+            print(str(f"{cars[0]}  | {float_top_spd[0]}   |   {float_cur_spd[0]}     |     {float_trav_dist[0]}"))
+            print(str(f"{cars[1]}  | {float_top_spd[1]}   |   {float_cur_spd[1]}     |     {float_trav_dist[1]}"))
+            print(str(f"{cars[2]}  | {float_top_spd[2]}   |   {float_cur_spd[2]}     |     {float_trav_dist[2]}"))
+            print(str(f"{cars[3]}  | {float_top_spd[3]}   |   {float_cur_spd[3]}     |     {float_trav_dist[3]}"))
+            print(str(f"{cars[4]}  | {float_top_spd[4]}   |   {float_cur_spd[4]}     |     {float_trav_dist[4]}"))
+            print(str(f"{cars[5]}  | {float_top_spd[5]}   |   {float_cur_spd[5]}     |     {float_trav_dist[5]}"))
+            print(str(f"{cars[6]}  | {float_top_spd[6]}   |   {float_cur_spd[6]}     |     {float_trav_dist[6]}"))
+            print(str(f"{cars[7]}  | {float_top_spd[7]}   |   {float_cur_spd[7]}     |     {float_trav_dist[7]}"))
+            print(str(f"{cars[8]}  | {float_top_spd[8]}   |   {float_cur_spd[8]}     |     {float_trav_dist[8]}"))
+            print(str(f"{cars[9]} | {float_top_spd[9]}   |   {float_cur_spd[9]}     |     {float_trav_dist[9]}"))
+            return
 
 ###pääohjelma alkaa
 
@@ -141,7 +130,6 @@ class Race:
 for i in range(10):
     cars.append(Car("ABC- " + str(i+1), random.randint(100, 200)))
 
-#muutetaan intit floateiksi prettytablelle
 float_top_spd = [float(car.top_spd) for car in cars]
 float_cur_spd = [float(car.cur_spd) for car in cars]
 float_trav_dist = [float(car.trav_dist) for car in cars]
