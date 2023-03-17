@@ -30,19 +30,17 @@ class Car:
         return self.trav_dist
 
 class ElectricCar(Car):
-    def __int__(self, reg_plate, top_spd, battery_cap, xx):
+    def __init__(self, reg_plate, top_spd, battery_cap):
         self.battery_cap = battery_cap
         super().__init__(reg_plate, top_spd)
 
 class PetrolCar(Car):
-    def __int__(self, reg_plate, top_spd, tank_size):
+    def __init__(self, reg_plate, top_spd, tank_size):
         self.tank_size = tank_size
         super().__init__(reg_plate, top_spd)
 
 
 ###pääohjelma alkaa
 
-#cars.append(ElectricCar("ABC-15", 180, 52.5))
-#cars.append(PetrolCar("ABD-123", 165, 32.3))
-
-ElectricCar("ABC-15", 180, 52.5)
+cars.append(ElectricCar("ABC-15", 180, 52.5))
+cars.append(PetrolCar("ABD-123", 165, 32.3))
