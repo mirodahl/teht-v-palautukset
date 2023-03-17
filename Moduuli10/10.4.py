@@ -60,33 +60,73 @@ class Car:
         return self.travdist
     def __str__(self):
         return "{}".format(self.regplate)
-#    def race(self, distance):
-#        for car in cars:
-#            while distance <= 10000:
-#                car.accelerate(random.randint(-15, 10))
-#                car.travel(1)
-#                print(f"Auto {car.regplate}, nykyinen nopeus {car.curspd}, kuljettu matka {car.travdist}")
 
+class Race:
+    def __init__(self,racename, racedist, cars):
+        self.racename = racename
+        self.racedist = racedist
+        self.race_over = False
+        self.cars = cars
+        print(f"Kisa aloitettu! Kisan pituus {racedist} kilometriä.")
 
-
-
-def race():
-    race_over = False
-    while not race_over:
+    def hour_pass(self):
+        if not self.race_over == True:
+            for car in cars:
+                car.accelerate(random.randint(-15, 10))
+                car.travel(1)
+                return
+    def race_finished(self):
         for car in cars:
-            car.accelerate(random.randint(-15, 10))
-            car.travel(1)
-            if car.travdist == 10000:
-                race_over = True
+            if car.travdist == self.racedist:
+                self.race_over = True
+                cartable.field_names = ["Registerplate", "Top speed", "Current speed", "Travelled distance"]
+                cartable.add_rows(
+                    [
+                        [cars[0], float_topspd[0], float_curspd[0], float_travdist[0]],
+                        [cars[1], float_topspd[1], float_curspd[1], float_travdist[1]],
+                        [cars[2], float_topspd[2], float_curspd[2], float_travdist[2]],
+                        [cars[3], float_topspd[3], float_curspd[3], float_travdist[3]],
+                        [cars[4], float_topspd[4], float_curspd[4], float_travdist[4]],
+                        [cars[5], float_topspd[5], float_curspd[5], float_travdist[5]],
+                        [cars[6], float_topspd[6], float_curspd[6], float_travdist[6]],
+                        [cars[7], float_topspd[7], float_curspd[7], float_travdist[7]],
+                        [cars[8], float_topspd[8], float_curspd[8], float_travdist[8]],
+                        [cars[9], float_topspd[9], float_curspd[9], float_travdist[9]],
+                    ]
+                )
+                # cartable.reversesort = True
+                print("Kilpailu ohi!")
+                print(cartable.get_string(sortby="Travelled distance"))
+            else:
+                self.race_over = False
+                print("Kilpailu on vielä kesken.")
+                return live_situation
+    def live_situation(self):
+        if not self.race_over == True:
+            # prettytable taulukko
+            cartable.field_names = ["Registerplate", "Top speed", "Current speed", "Travelled distance"]
+            cartable.add_rows(
+                [
+                    [cars[0], float_topspd[0], float_curspd[0], float_travdist[0]],
+                    [cars[1], float_topspd[1], float_curspd[1], float_travdist[1]],
+                    [cars[2], float_topspd[2], float_curspd[2], float_travdist[2]],
+                    [cars[3], float_topspd[3], float_curspd[3], float_travdist[3]],
+                    [cars[4], float_topspd[4], float_curspd[4], float_travdist[4]],
+                    [cars[5], float_topspd[5], float_curspd[5], float_travdist[5]],
+                    [cars[6], float_topspd[6], float_curspd[6], float_travdist[6]],
+                    [cars[7], float_topspd[7], float_curspd[7], float_travdist[7]],
+                    [cars[8], float_topspd[8], float_curspd[8], float_travdist[8]],
+                    [cars[9], float_topspd[9], float_curspd[9], float_travdist[9]],
+                ]
+            )
+            # cartable.reversesort = True
+            return print(cartable.get_string(sortby="Travelled distance"))
 
-
+###pääohjelma alkaa
 
 #luodaan autot
 for i in range(10):
     cars.append(Car("ABC- " + str(i+1), random.randint(100, 200)))
-
-#kisataan!
-race()
 
 #muutetaan intit floateiksi prettytablelle
 float_topspd = [float(car.topspd) for car in cars]
@@ -94,21 +134,3 @@ float_curspd = [float(car.curspd) for car in cars]
 float_travdist = [float(car.travdist) for car in cars]
 
 #prettytable taulukko
-cartable.field_names = ["Registerplate", "Top speed", "Current speed", "Travelled distance"]
-cartable.add_rows(
-    [
-        [cars[0], float_topspd[0], float_curspd[0], float_travdist[0]],
-        [cars[1], float_topspd[1], float_curspd[1], float_travdist[1]],
-        [cars[2], float_topspd[2], float_curspd[2], float_travdist[2]],
-        [cars[3], float_topspd[3], float_curspd[3], float_travdist[3]],
-        [cars[4], float_topspd[4], float_curspd[4], float_travdist[4]],
-        [cars[5], float_topspd[5], float_curspd[5], float_travdist[5]],
-        [cars[6], float_topspd[6], float_curspd[6], float_travdist[6]],
-        [cars[7], float_topspd[7], float_curspd[7], float_travdist[7]],
-        [cars[8], float_topspd[8], float_curspd[8], float_travdist[8]],
-        [cars[9], float_topspd[9], float_curspd[9], float_travdist[9]],
-    ]
-)
-
-#cartable.reversesort = True
-print(cartable.get_string(sortby="Travelled distance"))
