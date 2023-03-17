@@ -37,8 +37,11 @@ from prettytable import PrettyTable
 
 cars = []
 cartable = PrettyTable()
+
+
 class Car:
     car_count = 0
+
     def __init__(self, regplate, topspd):
         self.regplate = regplate
         self.topspd = topspd
@@ -46,6 +49,7 @@ class Car:
         self.travdist = 0
         Car.car_count += 1
         print(f"{Car.car_count}. Auto luotu, rekno: {regplate}, huippunopeus {topspd}")
+
     def accelerate(self, change):
         self.curspd = self.curspd + change
         if self.curspd > self.topspd:
@@ -53,15 +57,18 @@ class Car:
         if self.curspd < 0:
             self.curspd = 0
         return self.curspd
+
     def travel(self, hours):
         change = self.curspd * hours
         self.travdist = self.travdist + change
         return self.travdist
+
     def __str__(self):
         return "{}".format(self.regplate)
 
+
 class Race:
-    def __init__(self,racename, racedist, cars):
+    def __init__(self, racename, racedist, cars):
         self.racename = racename
         self.racedist = racedist
         self.race_over = False
@@ -69,12 +76,13 @@ class Race:
         print(f"Kisa {racename} aloitettu! Kisan pituus {racedist} kilometriä.")
 
     def hour_pass(self):
-        if not self.race_over == True:
+        if self.race_over is False:
             for car in cars:
                 car.accelerate(random.randint(-15, 10))
                 car.travel(1)
                 race.race_finished()
                 return
+
     def race_finished(self):
         float_topspd = [float(car.topspd) for car in cars]
         float_curspd = [float(car.curspd) for car in cars]
@@ -106,11 +114,12 @@ class Race:
                 race.live_situation()
                 race.hour_pass()
             return
+
     def live_situation(self):
         float_topspd = [float(car.topspd) for car in cars]
         float_curspd = [float(car.curspd) for car in cars]
         float_travdist = [float(car.travdist) for car in cars]
-        if not self.race_over == True:
+        if self.race_over is False:
             # prettytable taulukko
             cartable.field_names = ["Registerplate", "Top speed", "Current speed", "Travelled distance"]
             cartable.add_rows(
@@ -134,6 +143,8 @@ class Race:
 ###pääohjelma alkaa
 
 #luodaan autot
+
+
 for i in range(10):
     cars.append(Car("ABC- " + str(i+1), random.randint(100, 200)))
 
@@ -143,12 +154,16 @@ for i in range(10):
 #float_travdist = [float(car.travdist) for car in cars]
 
 #kisan kulku funktio
+
+
 def race_go():
-    while race.race_over == False:
+    while race.race_over is False:
         race.hour_pass()
         return
 
 #luodaan suuri romuralli
+
+
 race = Race("Suuri romuralli", 8000, cars)
 
 race_go()
