@@ -16,8 +16,8 @@ search = input("Anna haettava paikkakunta: ")
 try:
         request = "https://api.openweathermap.org/data/2.5/weather?q="+search+"&units=metric&appid=5b78d00bef03aee5575482775fdca0e9"
         answer = requests.get(request).json()
-        print(answer)
+        #print(answer)
         print(json.dumps(f"Current Weather: {answer['weather'][0]['description']}"))
-        print(json.dumps(f"Temperature: {answer['main'][0]['temp']}c"))#TODO tää rivi
+        print(json.dumps(f"Temperature: {answer['main']['temp']}c"))
 except requests.exceptions.RequestException as e:
     print ("Hakua ei voitu suorittaa.")

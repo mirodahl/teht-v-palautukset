@@ -12,19 +12,6 @@
 import requests
 import json
 
-#hakusana = input("Anna hakusana: ")
-
-# Pyynnön malli: https://api.tvmaze.com/search/shows?q=girls
-#try:
-#    pyyntö = "https://api.tvmaze.com/search/shows?q=" + hakusana
-#    vastaus = requests.get(pyyntö).json()
-#    print(vastaus)
-#    print(json.dumps(vastaus, indent=2))
-#    for a in vastaus:
-#        print(a["show"]["name"])
-#except requests.exceptions.RequestException as e:
-#    print ("Hakua ei voitu suorittaa.")
-
 try:
         request = "https://api.chucknorris.io/jokes/random"
         answer = requests.get(request).json()
