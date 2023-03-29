@@ -11,7 +11,7 @@ def primer(num):
     Prime = True
     for i in range(2, num):
         if num % i == 0:
-        Prime = False
+            Prime = False
     return Prime
 
 @app.route("/prime/<int:n>")
